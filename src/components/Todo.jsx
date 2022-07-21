@@ -5,7 +5,6 @@ import { deleteTodo, toggleTodo } from '../redux/reducers'
 import { useState } from 'react'
 
 export default function Todo(props) {
-    const [hoverCheck, setHoverCheck] = useState(false)
     const dispatch = useDispatch()
     const todoCheck = () => {
         dispatch(toggleTodo(props.id))
@@ -14,28 +13,27 @@ export default function Todo(props) {
     const todoDelete = () => {
         dispatch(deleteTodo(props.id))
     }
-    const todoCheckBtnClass = `todoCheck${
-        props.completed || hoverCheck ? ' todoCheckCompleted' : ''
-    }`
 
     return (
         <div className="todo">
             <div className="todoLeft">
                 <div
                     className={`todoCheck${
-                        props.completed || hoverCheck
-                            ? ' todoCheckCompleted'
-                            : ''
+                        props.completed ? ' todoCheckCompleted' : ''
                     }`}
                     onClick={todoCheck}
-                    onMouseEnter={() => setHoverCheck(true)}
-                    onMouseLeave={() => setHoverCheck(false)}
                 >
-                    {props.completed && !hoverCheck && (
-                        <FontAwesomeIcon icon={faCheck} />
+                    {props.completed && (
+                        <FontAwesomeIcon
+                            className="todoCheckIconToggleUncomplete"
+                            icon={faCheck}
+                        />
                     )}
-                    {!props.completed && hoverCheck && (
-                        <FontAwesomeIcon icon={faCheck} />
+                    {!props.completed && (
+                        <FontAwesomeIcon
+                            className="todoCheckIconToggleComplete"
+                            icon={faCheck}
+                        />
                     )}
                 </div>
 

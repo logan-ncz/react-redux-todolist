@@ -30,6 +30,7 @@ export default function AddTodo() {
             <input
                 className="createTodoInput"
                 type="text"
+                placeholder="Add a new todo"
                 onChange={(event) => setTodoInput(event.target.value)}
                 value={todoInput}
             />
