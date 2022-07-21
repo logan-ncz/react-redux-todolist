@@ -5,20 +5,24 @@ body {
 }
 
 .background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(139deg, rgba(255,193,193,1), rgba(154,111,201,1) 75%);
+    background: linear-gradient(
+        139deg,
+        rgba(255, 193, 193, 1),
+        rgba(154, 111, 201, 1) 75%
+    );
 }
 
 .container {
-    position: relative;
-    margin: 0;
-    padding: 2em 0;
-    top: 25%;
-    left: 36%;
+    padding: 2em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,13 +64,23 @@ body {
     }
 }
 
-.task {
+.todos {
+    width: 100%;
+}
+
+.todo {
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
-    &_check {
-        border: 2px solid rgba(154,111,201,0.5);
-        color: rgba(154,111,201,1);
+    &Left {
+        display: flex;
+        align-items: center;
+    }
+
+    &Check {
+        border: 2px solid #d9d9d9;
+        color: rgba(154, 111, 201, 1);
         border-radius: 0.4em;
         font-size: 1.3em;
         height: 20px;
@@ -75,9 +89,44 @@ body {
         justify-content: center;
         align-items: center;
         margin-right: 1em;
+        cursor: pointer;
+
+        &Completed {
+            border: 2px solid rgba(154, 111, 201, 1);
+            color: rgba(154, 111, 201, 1);
+        }
 
         svg {
             margin: 0 0 3px 10px;
+        }
+    }
+
+    &TextCompleted {
+        text-decoration: line-through;
+    }
+}
+
+.createTodo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &Input {
+        height: 2em;
+        border: 2px solid rgba(154, 111, 201, 1);
+        border-radius: 3px;
+    }
+
+    &Btn {
+        border: none;
+        background: none;
+
+        svg {
+            font-size: 1.4em;
+            border: 3px solid rgba(154, 111, 201, 1);
+            background-color: rgba(154, 111, 201, 1);
+            color: #fff;
+            border-radius: 1em;
+            padding: 5px 6.4px;
         }
     }
 }
