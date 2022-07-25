@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch } from 'react-redux'
 import { deleteTodo, toggleTodo } from '../redux/reducers'
-import { useState } from 'react'
 
 export default function Todo(props) {
     const dispatch = useDispatch()

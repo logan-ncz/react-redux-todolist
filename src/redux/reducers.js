@@ -3,26 +3,14 @@ import { createSlice } from '@reduxjs/toolkit'
 const todosSlice = createSlice({
     name: 'todos',
     initialState: {
-        todos: [
-            {
-                id: '1',
-                todoName: 'Buy new sweatshirt',
-                completed: false,
-            },
-            {
-                id: '2',
-                todoName: 'Begin promotional phase',
-                completed: true,
-            },
-        ],
+        todos: [],
     },
 
     reducers: {
         addTodo: (state, action) => {
             return {
-                // returning a copy of orignal state
-                state, //copying the original state
-                todos: [...state.todos, action.payload], //new todos array
+                state,
+                todos: [...state.todos, action.payload],
             }
         },
         toggleTodo: (state, action) => {
